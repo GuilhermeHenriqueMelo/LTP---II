@@ -8,15 +8,15 @@ import java.util.Scanner;
 public class JogoDaForca {
 	private Palavra palavra;
 	private String dica;
-	private char[] alfabeto; // Esse atributo será preenchido com as letras digitadas pelo usuário!
+	private char[] alfabeto; // Esse atributo ser� preenchido com as letras digitadas pelo usu�rio!
 	private char caracter;
-	private List<Integer> pos;  // Uma lista funciona "quase" como um array, porém, ela não se "importa" com o tamanho!
+	private List<Integer> pos;  // Uma lista funciona "quase" como um array, por�m, ela n�o se "importa" com o tamanho!
 	private short tamanhoDaPalavra;
 	
 	private Scanner scan = new Scanner(System.in);
 	
-	private static short CONTADOR = 0; // Essa constante serve para acabar com o loop do método jogar() !!
-	private static short POSICAO_LETRAS_USADAS = 0; // Essa constante serve para identificar a posição em que deve ser guardada o caracter digitado pelo usuário!!
+	private static short CONTADOR = 0; // Essa constante serve para acabar com o loop do m�todo jogar() !!
+	private static short POSICAO_LETRAS_USADAS = 0; // Essa constante serve para identificar a posi��o em que deve ser guardada o caracter digitado pelo usu�rio!!
 	
 	
 	public JogoDaForca(Palavra p, String dica) {
@@ -24,7 +24,7 @@ public class JogoDaForca {
 		this.dica = dica;
 		this.caracter = ' ';
 		this.tamanhoDaPalavra = (short) this.palavra.getPalavra().length();
-		this.alfabeto = new char[27]; // O atributo alfabeto possuirá 27 de tamanho para que ele aceite o caracter "ç"!
+		this.alfabeto = new char[28]; // O atributo alfabeto possuir� 28 de tamanho para que ele aceite o caracter "ç" e o "espaço"!
 	}
 	
 	public Palavra getPalavra() {
@@ -44,7 +44,7 @@ public class JogoDaForca {
 	}
 
 	
-	public void preparaPartida() { // Esse método inicializa algumas variáveis para que o jogo inicie sem problemas!
+	public void preparaPartida() { // Esse m�todo inicializa algumas vari�veis para que o jogo inicie sem problemas!
 		CONTADOR = 0;
 		POSICAO_LETRAS_USADAS = 0;
 		this.palavra.setPalavra(this.palavra.getPalavra().toLowerCase());
@@ -56,9 +56,9 @@ public class JogoDaForca {
 	}
 	
 	public String bemVindo() {
-		System.out.println("Bem-vindo ao jogo da forca!");
-		System.out.println("Voce deve digitar caracteres ate completar a palavra!");
-		System.out.println("Nao existe limite de tentativas!! Boa sorte!");
+		return "Bem-vindo ao jogo da forca!" + 
+	           "Voce deve digitar caracteres ate completar a palavra!" + 
+			   "Nao existe limite de tentativas!! Boa sorte!";
 	}
 	
 	public void preencheResposta() {
@@ -66,9 +66,9 @@ public class JogoDaForca {
 		
 		if (!this.pos.isEmpty()) {
 			for(int pos : this.pos) {
-				this.palavra.setLetras(pos);   // Esse método define, na(s) posição(ões) exata do array de booleano, o valor "true" caso o caracter exista!! 
+				this.palavra.setLetras(pos);   // Esse m�todo define, na(s) posi��o(�es) exata do array de booleano, o valor "true" caso o caracter exista!! 
 			}
-		CONTADOR+= this.pos.size(); // Essa linha de código possui essa lógica pois, caso a palavra tenha o caracter repetidas vezes (Exemplo: Arara), o caracter será
+		CONTADOR+= this.pos.size(); // Essa linha de c�digo possui essa l�gica pois, caso a palavra tenha o caracter repetidas vezes (Exemplo: Arara), o caracter ser�
 		}                           // contabilizado corretamente!!
 	}
 	
@@ -76,7 +76,7 @@ public class JogoDaForca {
 		short ok = 0;
 		System.out.print("Caracter: ");
 		String aux = scan.nextLine();
-			do{ // O laço de repetição impede que um caracter já digitado seja aceito novamente!!
+			do{ // O la�o de repeti��o impede que um caracter j� digitado seja aceito novamente!!
 				this.caracter= aux.charAt(0);
 				if (!isCaracterJaUtilizado(this.caracter)) {
 					ok = 1;
@@ -102,8 +102,8 @@ public class JogoDaForca {
 		return false;
 	}
 	
-	public List<Integer> posDoCaracterNaPalavra(char c) { // Esse método retorna a(s) posição(ões) em que o caracter aparece.
-		c = botaCaracterEmLowerCase(c);                   // Caso o caracter não exista na palavra a lista ficará vazia!!
+	public List<Integer> posDoCaracterNaPalavra(char c) { // Esse m�todo retorna a(s) posi��o(�es) em que o caracter aparece.
+		c = botaCaracterEmLowerCase(c);                   // Caso o caracter n�o exista na palavra a lista ficar� vazia!!
 		
 		char[] palavra = this.palavra.getPalavra().toCharArray();
 		List<Integer> lista = new ArrayList<>();
@@ -120,7 +120,7 @@ public class JogoDaForca {
 		char[] palavra = this.palavra.getPalavra().toCharArray();
 		for(short i = 0; i < this.tamanhoDaPalavra; i++) {
 			if (this.palavra.getLetras(i)) {    // Na classe Palavra, exite um array de booleano com o tamanho da palavra.
-				System.out.print(palavra[i]);   // Caso a posiãço do array esteja com o valor "true", o caracter da palavra será impresso!! 
+				System.out.print(palavra[i]);   // Caso a posi��o do array esteja com o valor "true", o caracter da palavra ser� impresso!! 
 			} else {
 				System.out.print("_");
 			}
@@ -153,8 +153,8 @@ public class JogoDaForca {
 		
 		imprimeLetrasJaUsadas();
 		
-		if (CONTADOR != this.tamanhoDaPalavra) {  // O que acontece aqui é que, literalmente, enquanto o jogador não completar a palavra o jogo não termina! 
-			jogar();                              // Estou usando de recursividade ao invés de um loop, já que o mesmo consome recursos do sistema e tempo de execução!!
+		if (CONTADOR != this.tamanhoDaPalavra) {  // O que acontece aqui � que, literalmente, enquanto o jogador n�o completar a palavra o jogo n�o termina! 
+			jogar();                              // Estou usando de recursividade ao inv�s de um loop, j� que o mesmo consome recursos do sistema e tempo de execu��o!!
 		}
 	}
 	

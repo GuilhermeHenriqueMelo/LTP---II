@@ -6,7 +6,7 @@ public class Palavra {
 	
 	public Palavra(String palavra) {
 		this.palavra = palavra;
-		this.letras = new boolean[this.palavra.length()]; // As posi√ß√µes do array j√° iniciam como "false" por default
+		this.letras = new boolean[this.palavra.length()]; // As posiÁıes do array j· iniciam como "false" por default
 	}
 	
 	public String getPalavra() {
@@ -21,15 +21,15 @@ public class Palavra {
 		return this.letras;
 	}
 	
-	public boolean getLetras(int i) { // Este metodo possui o mesmo nome do cima, mas n√£o gera erro!!
-		return this.letras[i];        // Isso acontece porque eles s√£o difirentes em "implementa√ß√£o", pois esse recebe como par√¢metro um inteiro.
-	}                                 // Isso √© chamado de "sobrecarga de m√©todo"!
+	public boolean getLetras(int i) { // Este metodo possui o mesmo nome do cima, mas n„o gera erro!!
+		return this.letras[i];        // Isso acontece porque eles s„o difirentes em "implementaÁ„o", pois esse recebe como par‚metro um inteiro.
+	}
 	
 	public void setLetras(boolean[] vet) {
 		this.letras = vet;
 	}
 	
-	public void setLetras(int i) { // Este metodo possui o mesmo nome do cima, mas n√£o gera erro!!
-		this.letras[i] = true;     // Isso acontece porque eles so difirentes em "implementa√ß√£o", pois esse recebe como par√¢metro um inteiro.
-	}                              // Isso √© chamado de "sobrecarga de m√©todo"!
+	public void setLetras(int i) { // Este metodo possui o mesmo nome do cima, mas n„o gera erro!!
+		this.letras[i] = true;     // Isso acontece porque eles s„o difirentes em "implementaÁ„o", pois esse recebe como par‚metro um inteiro.
+	}
 }

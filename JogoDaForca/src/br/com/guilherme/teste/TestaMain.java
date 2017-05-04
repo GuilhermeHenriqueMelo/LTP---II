@@ -7,8 +7,8 @@ import br.com.guilherme.jogoForca.Palavra;
 
 public class TestaMain {
 	
-	public static void limpaTela() {                                  // Como no Java não existe a chamada "System("CLS")", o jeito é fazer o programa
-		System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"+  // executar um bando de espaço!!
+	public static void limpaTela() {
+		System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"+
                            "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"+
 		                   "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		}
@@ -22,6 +22,8 @@ public class TestaMain {
 		System.out.println("Coloque uma dica para a palavra escolhida: ");
 		String dica = scan.nextLine();
 		limpaTela();
+		
+		
 		
 		
 		Palavra p = new Palavra(palavra);
